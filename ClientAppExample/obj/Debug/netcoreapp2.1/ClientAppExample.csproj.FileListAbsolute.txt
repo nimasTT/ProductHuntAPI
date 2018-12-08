@@ -1,0 +1,11 @@
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\bin\Debug\netcoreapp2.1\ClientAppExample.deps.json
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\bin\Debug\netcoreapp2.1\ClientAppExample.runtimeconfig.json
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\bin\Debug\netcoreapp2.1\ClientAppExample.runtimeconfig.dev.json
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\bin\Debug\netcoreapp2.1\ClientAppExample.dll
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\bin\Debug\netcoreapp2.1\ClientAppExample.pdb
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\obj\Debug\netcoreapp2.1\ClientAppExample.csprojAssemblyReference.cache
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\obj\Debug\netcoreapp2.1\ClientAppExample.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\obj\Debug\netcoreapp2.1\ClientAppExample.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\obj\Debug\netcoreapp2.1\ClientAppExample.AssemblyInfo.cs
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\obj\Debug\netcoreapp2.1\ClientAppExample.dll
+C:\Users\User\source\repos\nimasTT\ProductHuntAPI\ClientAppExample\obj\Debug\netcoreapp2.1\ClientAppExample.pdb
