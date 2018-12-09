@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductHuntAPI", "ProductHu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAppExample", "ClientAppExample\ClientAppExample.csproj", "{0E4B415A-C407-4F33-9B80-99E209B1E3F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductHuntAPITests", "ProductHuntAPITests\ProductHuntAPITests.csproj", "{ABA3FDA8-0BD5-46BF-8A9A-3636C1B66D89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0E4B415A-C407-4F33-9B80-99E209B1E3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E4B415A-C407-4F33-9B80-99E209B1E3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E4B415A-C407-4F33-9B80-99E209B1E3F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA3FDA8-0BD5-46BF-8A9A-3636C1B66D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA3FDA8-0BD5-46BF-8A9A-3636C1B66D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA3FDA8-0BD5-46BF-8A9A-3636C1B66D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA3FDA8-0BD5-46BF-8A9A-3636C1B66D89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

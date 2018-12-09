@@ -6,10 +6,10 @@ using System.Text;
 namespace ProductHuntAPI.Models
 {
     [DataContract]
-    public class TokenResponse
+    public class Token
     {
         [DataMember(Name = "access_token")]
-        public string Token { get; set; }
+        public string AccessToken { get; set; }
         [DataMember(Name = "token_type")]
         public string TokenType { get; set; }
         [DataMember(Name = "scope")]

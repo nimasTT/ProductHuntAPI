@@ -4,6 +4,7 @@ namespace ProductHuntAPI
 {
     public interface IRepository<T>
     {
-        T FindById(string id);
+        T FindById(int id);
+        T[] Select(string query);
     }
 }
