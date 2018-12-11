@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using ProductHuntAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace ProductHuntAPI
         public int RequestLimit { get; private set; }
         public bool IsAuthorized { get; private set; }
         public int ResultsPerPage { get; private set; }
+        private readonly JsonSerializerSettings vJsonSettings;
 
-        public AsyncHttpClient(Uri baseEndpoint,int resultsPerPage)
+        public AsyncHttpClient(Uri baseEndpoint,int resultsPerPage,JsonSerializerSettings jsonSerializerSettings)
         {
             BaseEndpoint = baseEndpoint ?? throw new ArgumentNullException(nameof(baseEndpoint));
+            vJsonSettings = jsonSerializerSettings ?? throw new ArgumentNullException(nameof(jsonSerializerSettings));
             ResultsPerPage = resultsPerPage;
             IsAuthorized = false;
             vHttpClient = new HttpClient();
@@ -48,11 +51,7 @@ namespace ProductHuntAPI
                 }
             }
                 
-            return JsonConvert.DeserializeObject<T>(data, new JsonSerializerSettings
-            {
-                Error = OnError,
-                MissingMemberHandling = MissingMemberHandling.Error,
-            });
+            return JsonConvert.DeserializeObject<T>(data, vJsonSettings);
         }
 
         /// <summary>  
@@ -63,11 +62,7 @@ namespace ProductHuntAPI
             var response = await vHttpClient.PostAsync(requestUrl.ToString(), CreateHttpContent<T>(content));
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<TR>(data, new JsonSerializerSettings
-            {
-                Error = OnError
-                //MissingMemberHandling = MissingMemberHandling.Error,
-            });
+            return JsonConvert.DeserializeObject<TR>(data,vJsonSettings);
         }
 
         private void OnError(object sender, ErrorEventArgs e)
@@ -111,6 +106,6 @@ namespace ProductHuntAPI
         {
             vHttpClient.DefaultRequestHeaders.Remove(header);
             vHttpClient.DefaultRequestHeaders.Add(header, value);
-        }      
+        }
     }
 }

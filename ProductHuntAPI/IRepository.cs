@@ -2,9 +2,9 @@
 
 namespace ProductHuntAPI
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T: IBaseEntity
     {
         T FindById(int id);
-        T[] Select(string query);
+        T[] Select(IQuery query);
     }
 }

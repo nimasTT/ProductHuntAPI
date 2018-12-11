@@ -14,5 +14,7 @@ namespace ProductHuntAPI.Models
         public string TokenType { get; set; }
         [DataMember(Name = "scope")]
         public string Scope { get; set; }
+        [DataMember(Name = "created_at")]
+        public int CreatedAt { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 namespace ProductHuntAPI.Models
 {
     [DataContract]
-    public class Topic
+    public class Topic:IBaseEntity
     {
         [DataMember(Name ="id")]
         public int Id { get; set; }
