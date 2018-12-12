@@ -15,7 +15,7 @@ namespace ProductHuntAPI.Models
         [DataMember(Name = "slug")]
         public string Slug { get; set; }
         [DataMember(Name = "created_at")]
-        public DateTime Created { get; set; }
+        public DateTime CreatedAt { get; set; }
         [DataMember(Name = "description")]
         public string Description { get; set; }
         [DataMember(Name = "followers_count")]

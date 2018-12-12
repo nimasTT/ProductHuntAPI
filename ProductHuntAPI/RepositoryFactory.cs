@@ -20,5 +20,14 @@ namespace ProductHuntAPI
         {
             return new BaseRepository<Topic>(vClient, "/v1/topics");
         }
+        public IRepository<Post> CreatePostRepository()
+        {
+            return new BaseRepository<Post>(vClient, "/v1/posts/all");
+        }
+
+        public IRepository<Comment> CreateCommentRepository()
+        {
+            return new BaseRepository<Comment>(vClient, "/v1/comments");
+        }
     }
 }
