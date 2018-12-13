@@ -27,7 +27,7 @@ namespace ProductHuntAPI
 
         public IRepository<Comment> CreateCommentRepository()
         {
-            return new BaseRepository<Comment>(vClient, "/v1/comments");
+            return new CommentRepository(vClient, "/v1/comments");
         }
     }
 }

@@ -52,6 +52,8 @@ namespace ClientAppExample
             Console.WriteLine($"{comments.Length} has been loaded. Here are they:");
             foreach (var comment in comments)
                 Console.WriteLine(comment.Body);
+            Console.WriteLine($"Load single comment Id={comments.First().Id}");
+            Console.WriteLine($"Text : {commentsRepo.FindById(comments.First().Id).Body}");
             Console.ReadKey();
         }
     }

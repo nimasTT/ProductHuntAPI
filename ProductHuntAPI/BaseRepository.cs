@@ -16,7 +16,7 @@ namespace ProductHuntAPI
             vHttpClient = authorizedHttpClient ?? throw new ArgumentNullException(nameof(authorizedHttpClient));
             vEndpoint = endpoint ?? throw new ArgumentNullException(nameof(endpoint));
         }
-        public T FindById(int id)
+        public virtual T FindById(int id)
         {
             var uri = vHttpClient.CreateRequestUri(vEndpoint+"/"+id.ToString());
             return vHttpClient.GetAsync<IRootWithInstance<T>>(uri).Result.Instance;
@@ -75,7 +75,7 @@ namespace ProductHuntAPI
             };
             return allData.ToArray();
         }
-        private T[] ExecuteQuery(string query,int? lastId=null)
+        protected T[] ExecuteQuery(string query,int? lastId=null)
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));
