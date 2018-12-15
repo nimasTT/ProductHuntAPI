@@ -3,7 +3,9 @@
 ################################################################################
 
 /.vs
-/ClientAppExample/bin/Debug/netcoreapp2.1
-/ProductHuntAPI/bin/Debug/netcoreapp2.1
-*.sln
+/ClientAppExample/bin/
+/ClientAppExample/obj/
+/ProductHuntAPI/bin/
+/ProductHuntAPI/obj/
+/*.sln
 /ClientAppExample/config.json
