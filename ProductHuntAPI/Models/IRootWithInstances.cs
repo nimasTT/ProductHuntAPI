@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProductHuntAPI.Models
 {
-    public interface IRootWithInstances<T>
+    internal interface IRootWithInstances<T>
     {
         T[] Instances { get; set; }
     }

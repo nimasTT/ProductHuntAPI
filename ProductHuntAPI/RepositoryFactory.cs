@@ -8,7 +8,10 @@ namespace ProductHuntAPI
     public class RepositoryFactory
     {
         private readonly IAsyncHttpClient vClient;
-        public RepositoryFactory(IAsyncHttpClient authorizedHttpClient)
+        public RepositoryFactory(string clientId, string clientSecret):this(ClientFactory.Create(clientId,clientSecret))
+        {}
+
+        private  RepositoryFactory(IAsyncHttpClient authorizedHttpClient)
         {
             if (authorizedHttpClient==null)
             throw new ArgumentNullException(nameof(authorizedHttpClient));
@@ -16,10 +19,12 @@ namespace ProductHuntAPI
                 throw new ArgumentException(nameof(authorizedHttpClient) + $" is not authorized.");
             vClient = authorizedHttpClient;
         }
+
         public IRepository<Topic> CreateTopicRepository()
         {
             return new BaseRepository<Topic>(vClient, "/v1/topics");
         }
+
         public IRepository<Post> CreatePostRepository()
         {
             return new BaseRepository<Post>(vClient, "/v1/posts/all");

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using ProductHuntAPI.Models;
 
+[assembly: InternalsVisibleTo("ProductHuntAPITests")]
 namespace ProductHuntAPI
 {
-    public class ClientAuthorizationProvider : IAuthorizationProvider
+    internal class ClientAuthorizationProvider : IAuthorizationProvider
     {
-        private string vToken;
         private readonly string vTokenEndpoint ="/v1/oauth/token";
         private readonly string vGrantType = "client_credentials";
 
@@ -26,9 +27,9 @@ namespace ProductHuntAPI
             };
             Uri tokenUri = httpClient.CreateRequestUri(vTokenEndpoint);
             var response = httpClient.PostAsync<TokenRequest, Token>(tokenUri, request).Result;
-            vToken = response.AccessToken;
+            Token = response.AccessToken;
         }
-        
-        public string Token => vToken;
+
+        public string Token { get; }
     }
 }

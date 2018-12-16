@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ProductHuntAPI
 {
-    public interface IAsyncHttpClient
+    internal interface IAsyncHttpClient
     {
         bool IsAuthorized { get; }
         int ResultsPerPage { get; }

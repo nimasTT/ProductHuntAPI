@@ -11,12 +11,11 @@ namespace ClientAppExample
     {
         static void Main(string[] args)
         {
+           
             Configuration config = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText("config.json"));
             Console.WriteLine("Lets try ProductHunt API");
-            Console.WriteLine("Establishing connection in CLient mode ... ");
-            IAsyncHttpClient client = ClientFactory.Create(config.ClientId, config.ClientSecret);
-            Console.WriteLine($"Client Authorized: {client.IsAuthorized.ToString()}");
-            var repoFactory = new RepositoryFactory(client);
+            Console.WriteLine("Establishing connection in Client mode ... ");
+            var repoFactory = new RepositoryFactory(config.ClientId, config.ClientSecret);
             
             //Topics
             var topicRepo = repoFactory.CreateTopicRepository();

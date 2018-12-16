@@ -27,7 +27,6 @@ namespace ProductHuntAPI.Models
         [DataMember(Name = "updated_at")]
         public DateTime Updated { get; set; }
         [DataMember(Name = "image")]
-        public Uri Image { get; set; }
-        
+        public Uri Image { get; set; } 
     }
 }

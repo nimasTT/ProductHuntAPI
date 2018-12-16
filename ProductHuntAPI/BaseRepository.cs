@@ -11,7 +11,7 @@ namespace ProductHuntAPI
         private readonly IAsyncHttpClient vHttpClient;
         private readonly string vEndpoint;
         
-        public BaseRepository(IAsyncHttpClient authorizedHttpClient,string endpoint)
+        internal BaseRepository(IAsyncHttpClient authorizedHttpClient,string endpoint)
         {
             vHttpClient = authorizedHttpClient ?? throw new ArgumentNullException(nameof(authorizedHttpClient));
             vEndpoint = endpoint ?? throw new ArgumentNullException(nameof(endpoint));

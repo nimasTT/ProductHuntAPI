@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProductHuntAPI
 {
-    public class AsyncHttpClient : IAsyncHttpClient
+    internal class AsyncHttpClient : IAsyncHttpClient
     {
 
         private readonly HttpClient vHttpClient;
@@ -20,7 +20,7 @@ namespace ProductHuntAPI
         public int ResultsPerPage { get; private set; }
         private readonly JsonSerializerSettings vJsonSettings;
 
-        public AsyncHttpClient(Uri baseEndpoint,int resultsPerPage,JsonSerializerSettings jsonSerializerSettings)
+        internal AsyncHttpClient(Uri baseEndpoint,int resultsPerPage,JsonSerializerSettings jsonSerializerSettings)
         {
             BaseEndpoint = baseEndpoint ?? throw new ArgumentNullException(nameof(baseEndpoint));
             vJsonSettings = jsonSerializerSettings ?? throw new ArgumentNullException(nameof(jsonSerializerSettings));
@@ -38,8 +38,9 @@ namespace ProductHuntAPI
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
             IEnumerable<string> values;
-            if (response.Headers.TryGetValues("X - Rate - Limit - Remaining",out values))
+            if (response.Headers.Contains("X - Rate - Limit - Remaining"))
             {
+                response.Headers.TryGetValues("X - Rate - Limit - Remaining", out values);
                 var value = values.ToList().FirstOrDefault();
                 if (!string.IsNullOrEmpty(value))
                 {
@@ -50,7 +51,6 @@ namespace ProductHuntAPI
                     }
                 }
             }
-                
             return JsonConvert.DeserializeObject<T>(data, vJsonSettings);
         }
 
@@ -63,11 +63,6 @@ namespace ProductHuntAPI
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<TR>(data,vJsonSettings);
-        }
-
-        private void OnError(object sender, ErrorEventArgs e)
-        {
-            Console.WriteLine("Error");
         }
 
         public Uri CreateRequestUri(string relativePath, string queryString = "")
@@ -94,7 +89,6 @@ namespace ProductHuntAPI
                 };
             }
         }
-
 
         public void AddBearerAuthorization(string token)
         {

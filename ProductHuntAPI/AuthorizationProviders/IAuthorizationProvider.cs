@@ -1,7 +1,7 @@
 ﻿
 namespace ProductHuntAPI
 {
-    public interface IAuthorizationProvider
+    internal interface IAuthorizationProvider
     {
         string Token { get; }
     }

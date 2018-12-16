@@ -7,13 +7,13 @@ using System.Text;
 namespace ProductHuntAPI.Models
 {
     [DataContract]
-    public class RootWithComments:IRootWithInstances<Comment>
+    internal class RootWithComments:IRootWithInstances<Comment>
     {
         [DataMember(Name = "comments")]
         public Comment[] Instances { get; set; }
     }
 
-    public class RootWithCommentsConverter : JsonConverter
+    internal class RootWithCommentsConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
