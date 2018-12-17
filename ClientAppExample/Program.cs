@@ -53,6 +53,7 @@ namespace ClientAppExample
                 Console.WriteLine(comment.Body);
             Console.WriteLine($"Load single comment Id={comments.First().Id}");
             Console.WriteLine($"Text : {commentsRepo.FindById(comments.First().Id).Body}");
+            Console.WriteLine($"============================ {commentsRepo.RequestLimit} requests left");
             Console.ReadKey();
         }
     }

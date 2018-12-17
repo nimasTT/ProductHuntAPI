@@ -6,5 +6,6 @@ namespace ProductHuntAPI
     {
         T FindById(int id);
         T[] Select(IQuery query);
+        int RequestLimit { get; }
     }
 }

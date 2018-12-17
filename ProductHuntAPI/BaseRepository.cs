@@ -16,6 +16,9 @@ namespace ProductHuntAPI
             vHttpClient = authorizedHttpClient ?? throw new ArgumentNullException(nameof(authorizedHttpClient));
             vEndpoint = endpoint ?? throw new ArgumentNullException(nameof(endpoint));
         }
+
+        public int RequestLimit => vHttpClient.RequestLimit;
+
         public virtual T FindById(int id)
         {
             var uri = vHttpClient.CreateRequestUri(vEndpoint+"/"+id.ToString());

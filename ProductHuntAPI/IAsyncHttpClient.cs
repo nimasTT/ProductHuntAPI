@@ -7,6 +7,7 @@ namespace ProductHuntAPI
     {
         bool IsAuthorized { get; }
         int ResultsPerPage { get; }
+        int RequestLimit { get; }
 
         void AddBearerAuthorization(string token);
         Uri CreateRequestUri(string relativePath, string queryString = "");
