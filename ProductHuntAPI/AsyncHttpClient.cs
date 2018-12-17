@@ -38,9 +38,9 @@ namespace ProductHuntAPI
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
             IEnumerable<string> values;
-            if (response.Headers.Contains("X - Rate - Limit - Remaining"))
+            if (response.Headers.TryGetValues("X-Rate-Limit-Remaining", out values))
             {
-                response.Headers.TryGetValues("X - Rate - Limit - Remaining", out values);
+                
                 var value = values.ToList().FirstOrDefault();
                 if (!string.IsNullOrEmpty(value))
                 {
