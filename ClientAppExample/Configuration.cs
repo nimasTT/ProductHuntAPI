@@ -8,5 +8,6 @@ namespace ClientAppExample
     {
         public string ClientId { get; set; }
         public string  ClientSecret { get; set; }
+        public string DeveloperToken { get; set; }
     }
 }

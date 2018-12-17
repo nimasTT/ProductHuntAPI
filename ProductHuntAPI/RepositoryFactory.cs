@@ -8,6 +8,9 @@ namespace ProductHuntAPI
     public class RepositoryFactory
     {
         private readonly IAsyncHttpClient vClient;
+        public RepositoryFactory(string developerToken) : this(ClientFactory.Create(developerToken))
+        { }
+
         public RepositoryFactory(string clientId, string clientSecret):this(ClientFactory.Create(clientId,clientSecret))
         {}
 

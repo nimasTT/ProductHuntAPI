@@ -46,7 +46,9 @@ namespace ClientAppExample
             Console.WriteLine($"The most commented one - {mostCommentedPost.Name } with {mostCommentedPost.CommentsCount} comments. Load them.");
 
             //Comments
-            var commentsRepo = repoFactory.CreateCommentRepository();
+            //Create connection using Developer Token
+            var devTokenFactory = new RepositoryFactory(config.DeveloperToken);
+            var commentsRepo = devTokenFactory.CreateCommentRepository();
             var comments = commentsRepo.Select(new CommentQuery() { PostId = mostCommentedPost.Id });
             Console.WriteLine($"{comments.Length} has been loaded. Here are they:");
             foreach (var comment in comments)

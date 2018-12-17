@@ -21,6 +21,14 @@ namespace ProductHuntAPI
             client.AddBearerAuthorization(token);
             return client;
         }
+
+        internal static IAsyncHttpClient Create(string developerToken)
+        {
+            var client = new AsyncHttpClient(baseEndpoint, resultsPerPage, MakeJsonSettings());
+            client.AddBearerAuthorization(developerToken);
+            return client;
+        }
+
         private static JsonSerializerSettings MakeJsonSettings()
         {
             var jsonSettings = new JsonSerializerSettings
